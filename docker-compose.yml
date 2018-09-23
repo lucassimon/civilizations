@@ -1,0 +1,11 @@
+version: '3'
+services:
+  civilizations:
+    build: .
+    ports:
+      - "8000:5000"
+    env_file: .env
+    restart: always
+  mongodb:
+    image: "mongo"
+    restart: always
