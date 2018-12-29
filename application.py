@@ -21,12 +21,7 @@ from apps import create_app
 
 app = create_app(getenv('ENV') or 'default')
 
-def log_handler(msg, level):
-    # Redirecting the msg and level to logging library.
-    getattr(logging, level)(msg)
-    print(f'Msg: {msg} / Level: {level}')
-    
+
 if __name__ == '__main__':
     ip = '0.0.0.0'
-    app.debug = True
-    app.run(host=ip, port=8000, debug=True)
+    app.run(host=ip, port=8000, debug=True, workers=1)
